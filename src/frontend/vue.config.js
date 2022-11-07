@@ -3,16 +3,16 @@ module.exports = {
   // transpileDependencies: true,
   //outputDir: 'target/dist',
   //assetsDir: 'static',
-  devServer:{
-    port:3000,
-    proxy:{
-        '/':{
-            target: 'http://localhost:9001',
-            ws: false,
-            changeOrigin: true
-        }
+  devServer: {
+    port: 3000,
+    proxy: {
+      '/': {
+        target: 'http://localhost:9001',
+        ws: false,
+        changeOrigin: true
+      }
     }
   },
   lintOnSave: false
-  
+
 }

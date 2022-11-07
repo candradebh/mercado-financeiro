@@ -36,7 +36,7 @@ public class AtivoService {
 
     public Ativo update(String ticker, Ativo ativo) {
 
-        Optional<Ativo> ativoExisting = repository.findByTicker(ticker);
+        Optional<Ativo> ativoExisting = repository.findByTickerIgnoreCase(ticker);
         if (ativoExisting.isPresent()) {
             Ativo updatedAtivo = ativoExisting.get();
 
@@ -48,7 +48,9 @@ public class AtivoService {
                 updatedAtivo.setCnpj(ativo.getCnpj());
             }
 
-            return (Ativo) updatedAtivo.add(linkTo(methodOn(AtivosController.class).getAll()).withRel("getAll"));
+            repository.save(updatedAtivo);
+
+            return (Ativo) repository.save(updatedAtivo).add(linkTo(methodOn(AtivosController.class).getAll()).withRel("getAll"));
 
         } else {
             return null;
@@ -57,19 +59,19 @@ public class AtivoService {
 
     public Ativo read(String ticker) {
 
-        Optional<Ativo> register = repository.findByTicker(ticker);
+        Optional<Ativo> register = repository.findByTickerIgnoreCase(ticker);
         return register.isPresent() ? (Ativo) register.get().add(linkTo(methodOn(AtivosController.class).getAll()).withRel("getAll")) : null;
     }
 
     public Ativo create(Ativo ativo) {
 
-        Optional<Ativo> ativoBuscado = repository.findByTicker(ativo.getTicker());
+        Optional<Ativo> ativoBuscado = repository.findByTickerIgnoreCase(ativo.getTicker());
         return !ativoBuscado.isPresent() ? (Ativo) repository.save(ativo).add(linkTo(methodOn(AtivosController.class).getAll()).withRel("getAll")) : null;
     }
 
     public boolean delete(String ticker) {
 
-        return repository.findByTicker(ticker).map(existingAtivo -> {
+        return repository.findByTickerIgnoreCase(ticker).map(existingAtivo -> {
             repository.delete(existingAtivo);
             return true;
         }).orElse(false);

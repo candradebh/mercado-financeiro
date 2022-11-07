@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface AtivoRepository extends JpaRepository<Ativo, Long> {
 
 
-    Optional<Ativo> findByTicker(String ticker);
+    Optional<Ativo> findByTickerIgnoreCase(String ticker);
 
 
 }

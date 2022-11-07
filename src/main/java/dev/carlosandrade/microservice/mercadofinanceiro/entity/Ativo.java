@@ -1,9 +1,12 @@
 package dev.carlosandrade.microservice.mercadofinanceiro.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -31,4 +34,19 @@ public class Ativo extends RepresentationModel {
 
     @Column(name = "cnpj")
     private String cnpj;
+
+    @Column(name = "preco")
+    private double preco;
+
+
+    @Column(name = "created_at", updatable = false)
+    @CreationTimestamp
+    private LocalDateTime created_at;
+
+
+    @Column(name = "updated_at")
+    @UpdateTimestamp
+    private LocalDateTime updated_at;
+
+
 }
