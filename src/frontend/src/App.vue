@@ -1,7 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Ativos</router-link> |
-    <router-link to="/show">Show</router-link>
+    <router-link to="/">Ativos</router-link> 
   </div>
   <router-view />
 </template>
