@@ -13,6 +13,6 @@ public class MessagesController {
     @GetMapping("/hello")
     public String hello() {
         Date dataAtual = new Date();
-        return "Olá eu estou vivo!" + dataAtual;
+        return "Olá eu estou vivo! Hoje: " + dataAtual;
     }
 }
