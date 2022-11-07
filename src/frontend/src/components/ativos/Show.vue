@@ -1,6 +1,6 @@
 <template>
     <h1>Ativo {{ ticker}}</h1>
-    
+    <p>Nome: {{ ativo.nome }}</p>
 </template>
 
 <script>
