@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import NotFound from "@/components/errors/NotFound.vue";
-import ListAtivos from "@/components/ativos/Ativos.vue";
-import ShowAtivo from "@/components/ativos/Show.vue";
-import EditAtivo from "@/components/ativos/Edit.vue";
+import ListAtivos from "@/views/ativos/Ativos.vue";
+import ShowAtivo from "@/views/ativos/Show.vue";
+import EditAtivo from "@/views/ativos/Edit.vue";
 
 const routes = [
   {

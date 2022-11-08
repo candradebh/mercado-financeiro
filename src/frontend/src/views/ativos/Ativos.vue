@@ -8,6 +8,7 @@
         <th>Nome</th>
         <th>Tipo</th>
         <th>CNPJ</th>
+        <th>Preço</th>
         <th>-</th>
       </tr>
     </thead>
@@ -17,8 +18,9 @@
         <td>{{ row.nome }}</td>
         <td>{{ row.tipoAtivo }}</td>
         <td>{{ row.cnpj }}</td>
+        <td>{{ row.preco }}</td>
         <td>
-          <router-link :to="'/show/' + row.ticker">Show</router-link> |
+          <router-link :to="'/show/' + row.ticker">Ver</router-link> |
           <router-link :to="'/edit/' + row.ticker">Editar</router-link>
         </td>
       </tr>
@@ -28,7 +30,6 @@
 
 <script>
 export default {
-  name: "Ativos",
   data() {
     return {
       ativos: [],
