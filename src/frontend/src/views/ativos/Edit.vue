@@ -59,14 +59,14 @@ export default {
   },
   methods: {
     updateAtivo(e) {
+      e.preventDefault(); // Prevent page from reloading.
+
       const requestOptions = {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.ativo),
       };
-      console.log(JSON.stringify(this.ativo));
 
-      e.preventDefault(); // Prevent page from reloading.
       fetch("/ativos/" + this.ativo.ticker, requestOptions)
         .then((response) => response.json())
         .then((data) => (this.ativo = data));

@@ -1,27 +1,28 @@
 <template>
-    <h1>Ativo {{ ticker}}</h1>
-    <p>Nome: {{ ativo.nome }}</p>
+  <h1>Ativo {{ ativo.ticker }}</h1>
+  <p>Nome: {{ ativo.nome }}</p>
 </template>
 
 <script>
 export default {
-  name: 'Show',
   props: {
     ticker: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-        ativo : {}
-    }
+      ativo: {},
+    };
   },
   created() {
-    console.log(this.ativo)
+    console.log(this.ativo);
   },
-  mounted(){
-    fetch("/ativos/"+this.ticker).then(response => response.json()).then(data => (this.ativo = data))
-  }
-}
+  mounted() {
+    fetch("/ativos/" + this.ticker)
+      .then((response) => response.json())
+      .then((data) => (this.ativo = data));
+  },
+};
 </script>
