@@ -4,7 +4,7 @@ module.exports = {
   //outputDir: 'target/dist',
   //assetsDir: 'static',
   devServer: {
-    port: 3000,
+    port: 3001,
     proxy: {
       '/': {
         target: 'http://localhost:9001',
